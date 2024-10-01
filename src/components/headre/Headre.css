@@ -1,0 +1,9 @@
+/* Add this file to your project and import it */
+.nav-item {
+    transition: all 0.3s ease-in-out; /* Centralized transition */
+  }
+  
+  .nav-item:hover {
+    transform: scale(1.05);
+    color: #863BE6;
+  }

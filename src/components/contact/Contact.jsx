@@ -13,20 +13,22 @@ function Contact() {
     e.preventDefault();
     setStatus("Sending...");
 
-    try {
-      await axios.post('/api/send', {
+    fetch("/.netlify/functions/send", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
         name,
         email,
         message,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Success:", data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
       });
-      setStatus('Message sent successfully!');
-      setName('');
-      setEmail('');
-      setMessage('');
-    } catch (error) {
-      setStatus('Error sending message. Please try again.');
-      console.error(error);
-    }
   };
 
   return (

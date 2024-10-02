@@ -1,11 +1,10 @@
-// netlify/functions/send.js
-const nodemailer = require('nodemailer');
+const nodemailer = require("nodemailer");
 
 exports.handler = async (event, context) => {
   const { name, email, message } = JSON.parse(event.body);
 
   const transporter = nodemailer.createTransport({
-    service: 'Gmail', // Use your email service
+    service: "Gmail", // Use your email service
     auth: {
       user: process.env.EMAIL_USER, // Your email
       pass: process.env.EMAIL_PASS, // Your email password or app password
@@ -24,13 +23,17 @@ exports.handler = async (event, context) => {
     await transporter.sendMail(mailOptions);
     return {
       statusCode: 200,
-      body: JSON.stringify({ message: 'Email sent successfully!' }),
+      headers: {
+        "Access-Control-Allow-Origin": "*", // Allow requests from any origin
+        "Access-Control-Allow-Headers": "Content-Type", // Allow Content-Type header
+      },
+      body: JSON.stringify({ message: "Email sent successfully!" }),
     };
   } catch (error) {
-    console.error('Error sending email:', error);
+    console.error("Error sending email:", error);
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: 'Error sending email.' }),
+      body: JSON.stringify({ error: "Error sending email." }),
     };
   }
 };

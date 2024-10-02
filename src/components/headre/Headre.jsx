@@ -58,7 +58,7 @@ function Header() {
           }`}
         >
           <ul className="w-auto h-[90vh]  sm:h-auto flex flex-col sm:flex-row justify-center items-center gap-8 bg-white">
-            {["About", "Projects", "Education", "Contact"].map(
+            {["About", "Projects", "Education"].map(
               (item) => (
                 <li
                   onClick={() => setMenuOpen((prev) => !prev)}

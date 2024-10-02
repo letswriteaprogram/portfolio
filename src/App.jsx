@@ -4,7 +4,6 @@ import HeroSection from './components/hero/HeroSection'
 import Skills from './components/skill/Skills'
 import Projects from './components/project/Projects'
 import Education from './components/education/Education'
-import Contact from './components/contact/Contact'
 import Footer from './components/footer/Footer'
 
 function App() {
@@ -15,7 +14,6 @@ function App() {
     <Skills/>
     <Projects/>
     <Education/>
-    <Contact/>
     <Footer/>
     </>
   )

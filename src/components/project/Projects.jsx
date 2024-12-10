@@ -48,9 +48,7 @@ function Projects() {
                 className="max-w-[400px] border-2 border-black rounded-lg mb-6 hover:shadow-2xl hover:scale-105 transition-all duration-1000"
               >
                 {project?.livelink && (
-                    <a href={project?.livelink} target="_blank" rel="noopener noreferrer">
-                      <MdOutlinePhonelink className="text-3xl" />
-                    
+                <a href={project?.livelink} target="_blank" rel="noopener noreferrer">                    
                 <div className="flex justify-between items-center px-4">
                   <p className="p-1 font-semibold">{project.name} </p>
                   <HiDotsHorizontal className="text-2xl" />
@@ -68,7 +66,11 @@ function Projects() {
                       <FaGithub className="text-3xl" />
                     </a>
                   )}
-                  
+                  {project?.livelink && (
+                    <a href={project?.livelink} target="_blank" rel="noopener noreferrer">
+                      <MdOutlinePhonelink className="text-3xl" />
+                    </a>
+                  )}
                 </div>
               </div>
             ))}

@@ -47,6 +47,10 @@ function Projects() {
                 key={id} 
                 className="max-w-[400px] border-2 border-black rounded-lg mb-6 hover:shadow-2xl hover:scale-105 transition-all duration-1000"
               >
+                {project?.livelink && (
+                    <a href={project?.livelink} target="_blank" rel="noopener noreferrer">
+                      <MdOutlinePhonelink className="text-3xl" />
+                    
                 <div className="flex justify-between items-center px-4">
                   <p className="p-1 font-semibold">{project.name} </p>
                   <HiDotsHorizontal className="text-2xl" />
@@ -56,17 +60,15 @@ function Projects() {
                   src={project.image} // Using the imported image reference
                   alt={`project/${project.name}`}
                 />
+                      </a>
+                  )}
                 <div className="w-full flex justify-evenly py-1">
                   {project?.githublink && (
                     <a href={project?.githublink} target="_blank" rel="noopener noreferrer">
                       <FaGithub className="text-3xl" />
                     </a>
                   )}
-                  {project?.livelink && (
-                    <a href={project?.livelink} target="_blank" rel="noopener noreferrer">
-                      <MdOutlinePhonelink className="text-3xl" />
-                    </a>
-                  )}
+                  
                 </div>
               </div>
             ))}
